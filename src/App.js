@@ -45,7 +45,7 @@ const App = () => {
                 placeholder="Введите ник пользователя"
               />
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-1"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-3"
                 onClick={() => getSearch()}
               >
                 Найти
@@ -61,12 +61,12 @@ const App = () => {
           ) : (
             <div className="max-w-4xl mx-auto">
               <div className="flex flex-wrap -mx-4 mb-20">
-                <div className="w-full lg:w-1/2 px-4 mb-4 lg:mb-0">
+                <div className="w-full lg:w-1/2 px-4 mb-4 lg:mb-0 rounded-lg">
                   <div className="bg-gray-600 rounded-b-lg">
                     <div className="flex justify-center">
                       {/* Avatar image */}
                       <img
-                        className="w-56 h-56 rounded-full"
+                        className="w-56 h-56 rounded-full mt-1"
                         src={profile?.avatar_url}
                         alt="avatar"
                       />
@@ -74,34 +74,52 @@ const App = () => {
                     <div className="px-14 py-8">
                       <div className="mb-6 py-px bg-gray-500"></div>
                       <h4 className="mb-8 lg:mb-4  text-white font-bold">
-                        Name: <span>{profile?.name}</span>
+                        Name:{' '}
+                        <span className='ml-2 inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs font-medium bg-green-500 text-green-800"'>
+                          {profile?.name}
+                        </span>
                       </h4>
                       <div className="mb-6 py-px bg-gray-500"></div>
                       <h4 className="mb-8 lg:mb-4  text-white font-bold">
                         {/* Bio goes here */}
-                        Bio: <span>{profile?.bio}</span>
+                        Bio:{' '}
+                        <span className='"ml-2 inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs font-medium bg-green-500 text-green-800"'>
+                          {profile?.bio ? profile?.bio : 'N/A'}
+                        </span>
                       </h4>
                       <div className="mb-6 py-px bg-gray-500"></div>
                       <h4 className="mb-8 lg:mb-4  text-white font-bold">
                         {/* Company goes here */}
-                        Company: <span>{profile?.company}</span>
+                        Company:{' '}
+                        <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs font-medium bg-green-500 text-green-800">
+                          {profile?.company ? profile?.company : 'N/A'}
+                        </span>
                       </h4>
                       <div className="mb-6 py-px bg-gray-500"></div>
                       <h4 className="mb-8 lg:mb-4  text-white font-bold">
                         {/* Location goes here */}
-                        Location: <span>{profile?.location}</span>
+                        Location:{' '}
+                        <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs font-medium bg-green-500 text-green-800">
+                          {profile?.location ? profile?.location : 'N/A'}
+                        </span>
                       </h4>
 
                       <div className="mb-6 py-px bg-gray-500"></div>
                       <h4 className="mb-8 lg:mb-4  text-white font-bold">
                         {/* followers goes here */}
-                        Followers: <span>{profile?.followers}</span>
+                        Followers:{' '}
+                        <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs font-medium bg-green-500 text-green-800">
+                          {profile?.followers ? profile?.followers : 'N/A'}
+                        </span>
                       </h4>
 
                       <div className="mb-6 py-px bg-gray-500"></div>
                       <h4 className="mb-8 lg:mb-4  text-white font-bold">
                         {/* following goes here */}
-                        Following: <span>{profile?.following}</span>
+                        Following:{' '}
+                        <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs font-medium bg-green-500 text-green-800">
+                          {profile?.following ? profile?.following : 'N/A'}
+                        </span>
                       </h4>
 
                       <div className="mb-6 py-px bg-gray-500"></div>
@@ -129,7 +147,7 @@ const App = () => {
                           href={profile?.html_url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-block px-12 py-4 border border-gray-300 hover:border-gray-200 rounded-full font-bold text-white"
+                          className="inline-block px-12 py-4 border border-gray-300 hover:bg-gray-900 rounded-full font-bold text-white"
                         >
                           Посмотреть профиль
                         </a>
@@ -143,7 +161,7 @@ const App = () => {
                   {reposList?.name !== 'Error' &&
                     reposList?.map((repo) => (
                       <div className="py-6 px-8 mb-4 bg-gray-600 rounded-lg">
-                        <div className="flex items-center">
+                        <div className="flex items-center justify-center">
                           <a
                             href={repo?.html_url}
                             target="_blank"
@@ -158,10 +176,10 @@ const App = () => {
                   <div className="py-6 px-8"></div>
                 </div>
               </div>
-              <div className="text-center w-full bg-green-500 ">
-                <p className="mb-4  text-amber-400">
+              <div className="text-center w-full bg-gray-700 ">
+                <p className="mb-4  text-green-50 text-lg mt-1">
                   Разработано
-                  <span className="p-2 text-yellow-300">
+                  <span className="p-2 text-yellow-300 text-lg">
                     <a href="https://github.com/kostya-alch">
                       Константин Романов
                     </a>
