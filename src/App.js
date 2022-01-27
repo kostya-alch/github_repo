@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getProfileUserAction, getReposAction } from './actions/actions';
@@ -6,14 +6,14 @@ import header from './img/header.jpg';
 const App = () => {
   const [valueSearch, setValueSearch] = useState('');
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getReposAction(valueSearch));
-    dispatch(getProfileUserAction(valueSearch));
-  }, [dispatch, valueSearch]);
 
   const store = useSelector((state) => state?.repos);
   const { loading, reposList, error, profile } = store;
 
+  const getSearch = () => {
+    dispatch(getReposAction(valueSearch));
+    dispatch(getProfileUserAction(valueSearch));
+  };
   return (
     <>
       <section className="relative 2xl bg-gray-800 min-h-screen">
@@ -44,6 +44,12 @@ const App = () => {
                 className="shadow-sm text-center focus:ring-indigo-500 p-2 focus:border-indigo-500  sm:text-sm border-gray-300 w-full rounded-md lg:w-1/2"
                 placeholder="Введите ник пользователя"
               />
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-1"
+                onClick={() => getSearch()}
+              >
+                Найти
+              </button>
             </div>
           </div>
           {/* Content goes here */}
@@ -152,7 +158,7 @@ const App = () => {
                   <div className="py-6 px-8"></div>
                 </div>
               </div>
-              <div className="text-center bg-stone-900 ">
+              <div className="text-center w-full bg-green-500 ">
                 <p className="mb-4  text-amber-400">
                   Разработано
                   <span className="p-2 text-yellow-300">
