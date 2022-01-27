@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import profileSlice from '../slices/profileSlice';
-import reposSlice from '../slices/reposSlice';
+import reposReducer from '../slices/githubSlices';
 
 const store = configureStore({
   reducer: {
-    profile: profileSlice,
-    repos: reposSlice,
+    repos: reposReducer,
   },
 });
 

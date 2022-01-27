@@ -6,14 +6,14 @@ export const getReposAction = createAsyncThunk(
   async (user, { rejectWithValue, getState, dispatch }) => {
     try {
       const { data } = await axios.get(
-        `https://api.github.com/users/${user}/repos?per_page=30&sort=asc`
+        `https://api.github.com/users/${user}/repos?per_page=700&sort=asc`
       );
       return data;
     } catch (error) {
       if (!error.response) {
         throw error;
       }
-      return rejectWithValue(error?.response);
+      return rejectWithValue(error?.response.data);
     }
   }
 );
@@ -28,7 +28,7 @@ export const getProfileUserAction = createAsyncThunk(
       if (!error.response) {
         throw error;
       }
-      return rejectWithValue(error?.response);
+      return rejectWithValue(error?.response.data);
     }
   }
 );
