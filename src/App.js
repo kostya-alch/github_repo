@@ -152,8 +152,8 @@ const App = () => {
                   <div className="py-6 px-8"></div>
                 </div>
               </div>
-              <div className="text-center bg-gray-300 ">
-                <p className="mb-4  text-gray-300">
+              <div className="text-center bg-stone-900 ">
+                <p className="mb-4  text-amber-400">
                   Разработано
                   <span className="p-2 text-yellow-300">
                     <a href="https://github.com/kostya-alch">
