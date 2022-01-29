@@ -1,5 +1,5 @@
 import React from 'react';
-
+import whiteBg from '../img/white.jpg'
 const InfoUser = ({ profile }) => {
    return (
       <div className="w-full lg:w-1/2 px-4 mb-4 lg:mb-0 rounded-lg">
@@ -8,8 +8,8 @@ const InfoUser = ({ profile }) => {
                {/* Avatar image */}
                <img
                   className="w-56 h-56 rounded-full mt-1"
-                  src={profile?.avatar_url}
-                  alt="avatar"
+                  src={profile?.avatar_url ? profile?.avatar_url : whiteBg}
+                  alt='avatar'
                />
             </div>
             <div className="px-14 py-8">
@@ -17,7 +17,7 @@ const InfoUser = ({ profile }) => {
                <h4 className="mb-8 lg:mb-4  text-white font-bold">
                   Name:{' '}
                   <span className='ml-2 inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs font-medium bg-green-500 text-green-800"'>
-                     {profile?.name}
+                     {profile?.name ? profile?.name : 'N/A'}
                   </span>
                </h4>
                <div className="mb-6 py-px bg-gray-500"></div>
@@ -32,7 +32,7 @@ const InfoUser = ({ profile }) => {
                <h4 className="mb-8 lg:mb-4  text-white font-bold">
                   {/* Company goes here */}
                   Company:{' '}
-                  <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs font-medium bg-green-500 text-green-800">
+                  <span className="ml-2 inline-flex text-white items-center px-2.5 py-0.5 rounded-lg text-xs font-medium bg-green-500 text-green-800">
                      {profile?.company ? profile?.company : 'N/A'}
                   </span>
                </h4>
