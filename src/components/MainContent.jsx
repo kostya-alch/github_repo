@@ -8,7 +8,7 @@ const MainContent = () => {
    const { loading, reposList, error, profile } = store;
    return (
 
-      !loading ? (
+      loading ? (
          <Loader />
       ) : error ? (
          <h2>{error?.data?.message}</h2>
