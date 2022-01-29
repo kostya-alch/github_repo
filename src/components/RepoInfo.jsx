@@ -1,12 +1,12 @@
 import React from 'react';
 
-const RepoInfo = ({reposList}) => {
+const RepoInfo = ({ reposList }) => {
    return (
       <div className="w-full lg:w-1/2 px-4">
          {/* Loop this */}
          {reposList?.name !== 'Error' &&
-            reposList?.map((repo) => (
-               <div className="py-6 px-8 mb-4 bg-gray-600 rounded-lg">
+            reposList?.map((repo, index) => (
+               <div key={index} className="py-6 px-8 mb-4 bg-gray-600 rounded-lg">
                   <div className="flex items-center justify-center">
                      <a
                         href={repo?.html_url}
